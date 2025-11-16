@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h2 class="text-center mb-4">📝 My Blogs</h2>
+
+{% if posts %}
+<div class="post-list">
+    {% for post in posts %}
+        <div class="post">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% endif %}
+            <h3>{{ post.title }}</h3>
+
+            <div class="actions">
+                <a href="{% url 'post_edit' post.id %}" class="btn btn-warning">✏️ Edit</a>
+                <form action="{% url 'post_delete' post.id %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">🗑️ Delete</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No blogs yet.</p>
+{% endif %}
+{% endblock %}

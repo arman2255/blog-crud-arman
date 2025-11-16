@@ -1,0 +1,145 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="post-detail-container">
+    <div class="post-detail-card">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-meta">👤 {{ post.author.username }} | 🕒 {{ post.created_at|date:"M d, Y" }}</p>
+
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+        {% endif %}
+
+        <p class="post-content">{{ post.content }}</p>
+
+        <div class="post-actions">
+            <form action="{% url 'like_post' post.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="like-btn">
+                    {% if user in post.likes.all %}
+                        ❤️ Unlike
+                    {% else %}
+                        🤍 Like
+                    {% endif %}
+                    ({{ post.total_likes }})
+                </button>
+            </form>
+
+            {% if request.user == post.author or request.user.is_superuser %}
+                <a href="{% url 'post_edit' post.id %}" class="edit-btn">✏️ Edit</a>
+            {% endif %}
+            {% if request.user.is_superuser %}
+                <a href="{% url 'post_delete' post.id %}" class="delete-btn">🗑️ Delete</a>
+            {% endif %}
+        </div>
+
+        <a href="{% url 'home' %}" class="back-btn">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}
+
+
+<script>
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+</script>
+
+<style>
+.post-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f4f6f9;
+    min-height: 80vh;
+}
+
+.post-detail-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.post-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.like-btn, .edit-btn, .delete-btn, .back-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.like-btn {
+    background-color: #ff7675;
+    color: white;
+}
+
+.like-btn:hover {
+    background-color: #e84342;
+}
+
+.edit-btn {
+    background-color: #0984e3;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #0652dd;
+}
+
+.delete-btn {
+    background-color: #d63031;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #b21f24;
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: #636e72;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+    background-color: #2d3436;
+}
+</style>

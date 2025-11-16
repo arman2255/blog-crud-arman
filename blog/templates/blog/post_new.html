@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+  <div class="form-card">
+    <h2>📝 Create a New Blog</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="submit-btn">Publish Blog</button>
+    </form>
+    <a href="{% url 'home' %}" class="back-link">← Back to Home</a>
+  </div>
+</div>
+{% endblock %}

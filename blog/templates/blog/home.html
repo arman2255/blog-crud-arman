@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="post-list">
+    {% for post in posts %}
+        <div class="post">
+            <a href="{% if user.is_authenticated %}{% url 'post_detail' post.id %}{% else %}{% url 'login' %}{% endif %}">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% else %}
+                    <img src="{% static 'blog/images/default.jpg' %}" alt="Default image">
+                {% endif %}
+                <h3>{{ post.title }}</h3>
+            </a>
+
+            <p class="post-meta">
+                👤 <strong>{{ post.author.username }}</strong> | 🕒 {{ post.created_at|date:"M d, Y" }}
+            </p>
+
+            <p>❤️ {{ post.total_likes|default:0 }} likes</p>
+        </div>
+    {% empty %}
+        <p>No blog posts yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
