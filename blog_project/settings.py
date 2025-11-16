@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-$(6i6p)f$$8n4_39i@h#m(a4rqkr-&#^-rk)i51lntcjx3mdsw
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # ------------------------
@@ -141,3 +141,4 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SAMESITE = 'Lax'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
+
