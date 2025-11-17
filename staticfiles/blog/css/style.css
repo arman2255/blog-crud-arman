@@ -1,0 +1,447 @@
+/* ---------- BASE STYLES ---------- */
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+    background: linear-gradient(135deg, #1b263b, #0d1b2a);
+    color: #f5f6fa;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.logo:hover {
+    color: #00a8ff;
+}
+
+/* Navbar right section */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Username */
+.username {
+    color: #f1f2f6;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.username::before {
+    content: "👤";
+}
+
+.username:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #00a8ff;
+}
+
+/* Buttons */
+.nav-btn {
+    background: linear-gradient(135deg, #00a8ff, #0078ff);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 168, 255, 0.4);
+}
+
+/* Logout button */
+.logout-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+}
+
+.logout-btn:hover {
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.5);
+}
+
+/* ---------- BLOG GRID ---------- */
+.post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.post {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    padding: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.post img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.post h3 {
+    margin: 10px 0;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+/* ---------- AUTH FORMS ---------- */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #f4f7fa;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.auth-card h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-card input[type="text"],
+.auth-card input[type="password"],
+.auth-card input[type="email"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.auth-card input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.auth-card button {
+    background: #3498db;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.auth-card button:hover {
+    background: #2980b9;
+}
+
+.auth-footer {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.auth-footer a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- POPUP MESSAGES ---------- */
+.popup-message {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: #e74c3c; /* error by default */
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+.popup-message.success {
+    background: #2ecc71;
+}
+
+.popup-message.warning {
+    background: #f39c12;
+}
+
+.popup-message.info {
+    background: #3498db;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ---------- POST DETAIL ---------- */
+.post-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f4f6f9;
+    min-height: 80vh;
+}
+
+.post-detail-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.post-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.like-btn, .edit-btn, .delete-btn, .back-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.like-btn {
+    background-color: #ff7675;
+    color: white;
+}
+
+.like-btn:hover {
+    background-color: #e84342;
+}
+
+.edit-btn {
+    background-color: #0984e3;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #0652dd;
+}
+
+.delete-btn {
+    background-color: #d63031;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #b21f24;
+}
+
+.back-btn {
+    background-color: #636e72;
+    color: white;
+}
+
+.back-btn:hover {
+    background-color: #2d3436;
+}
+
+/* ---------- BLOG FORM (CREATE / EDIT) ---------- */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #f8f9ff, #e9ecff);
+    min-height: 80vh;
+}
+
+.form-card {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-card input[type="text"],
+.form-card textarea,
+.form-card input[type="file"],
+.form-card select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.form-card textarea {
+    resize: none;
+    height: 150px;
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108,99,255,0.2);
+}
+
+.submit-btn {
+    background: #6c63ff;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #584df2;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #6c63ff;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0 10px;
+}
