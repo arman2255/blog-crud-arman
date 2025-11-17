@@ -3,6 +3,10 @@
 A clean and functional **Django Blog Application** that lets users **Create, Read, Update, and Delete (CRUD)** blog posts.  
 Built with Django and styled using simple, responsive CSS — perfect for learning and showcasing Django fundamentals.
 
+## 🌐 Live Deployment  
+Your can view the live running project here:
+https://blog-crud-arman-e7x1.onrender.com/
+
 🚀 Features
 
 ✅ Create new blog posts  
@@ -96,4 +100,5 @@ Delete Option: Remove posts instantly
 🌟 Support
 If you like this project, consider giving it a ⭐ on GitHub!
 It helps others discover it and motivates further development.
+
 
