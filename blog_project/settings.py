@@ -89,8 +89,6 @@ USE_TZ = True
 
 # STATIC & MEDIA FILES
 
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
@@ -117,14 +115,14 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = False
 
 # Cookie lifetime (short safety window)
-SESSION_COOKIE_AGE = 10  # seconds, for safety if Chrome restores session
+SESSION_COOKIE_AGE = 10 
 
 # Prevent persistent cookies from being reused
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_NAME = 'sessionid'
-SESSION_COOKIE_SECURE = False  # True only with HTTPS
+SESSION_COOKIE_SECURE = False 
 SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = 'Strict'  # Stronger than 'Lax'
+SESSION_COOKIE_SAMESITE = 'Strict'  
 
 # ✅ Keep users logged in reliably
 SESSION_COOKIE_SECURE = False
@@ -132,4 +130,5 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SAMESITE = 'Lax'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
+
 
